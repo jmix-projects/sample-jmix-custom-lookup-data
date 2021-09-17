@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://workerEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="workerDc"
+                  class="com.company.samplejmixcustomlookupdata.entity.Worker">
+            <fetchPlan extends="_base">
+                <property name="tasks" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader/>
+            <collection id="tasksDc" property="tasks"/>
+        </instance>
+        <collection id="tasksDc1" class="com.company.samplejmixcustomlookupdata.entity.Task">
+            <fetchPlan extends="_base"/>
+            <loader id="tasksDl">
+                <query>
+                    <![CDATA[select e from Task_ e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true" expand="editActions">
+        <form id="form" dataContainer="workerDc">
+            <column width="350px">
+                <textField id="firstNameField" property="firstName"/>
+                <textField id="lastNameField" property="lastName"/>
+                <textField id="ageField" property="age"/>
+            </column>
+        </form>
+        <groupBox id="tasksBox" caption="msg://com.company.samplejmixcustomlookupdata.entity/Worker.tasks">
+            <table id="tasksTable" dataContainer="tasksDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add">
+                        <properties>
+                            <property name="screenId" value="ActiveTask.browse"/>
+                        </properties>
+                    </action>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="name"/>
+                    <column id="status"/>
+                </columns>
+                <buttonsPanel>
+                    <button id="addTask" action="tasksTable.add"/>
+                    <button action="tasksTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
