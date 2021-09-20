@@ -4,6 +4,14 @@ For displaying custom lookup screen you can:
 - Implement an additional screen and add some logic to the controller or descriptor.
 - Implement [screenConfigurer](https://docs.jmix.io/jmix/backoffice-ui/actions/standard-actions/add-action.html#_screenconfigurer) or [screenOptionsSupplier](https://docs.jmix.io/jmix/backoffice-ui/actions/standard-actions/add-action.html#_screenoptionssupplier). Add some logic of displaying to the screen by declaring functions
 
-Case 1 is present in the Active task browser. This screen uses in the worker editing screen. 
+Case 1 is present in the Active task browser, placed in the path `../screen/task/active-task-browser.xml`. "Where" condition was implemented to filter only active tasks. This screen uses in the worker editing screen. 
 
-Case 2 is present in the task edit screen. A simple display function is implemented in the worker browser.
+Case 2 is present in the task edit screen, placed in the path `../screen/task/TaskEdit.java`.
+Screen displaying was configured by using function limitTaskCount in the screenConfigurer
+```
+@Install(to = "workersTable.add", subject = "screenConfigurer")
+private void workersTableAddScreenConfigurer(Screen screen) {
+((WorkerBrowse) screen).limitTaskCount(4);
+}
+```
+A limitTaskCount function is implemented in the worker browser, placed in the path `../screen/worker/WorkerBrowse.java`.

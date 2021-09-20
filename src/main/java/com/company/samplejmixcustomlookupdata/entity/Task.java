@@ -27,15 +27,15 @@ public class Task {
     @ManyToMany
     private List<Worker> workers;
 
-    @Column(name = "STATUS")
-    private String status;
+    @Column(name = "ACTIVE")
+    private Boolean active;
 
-    public Status getStatus() {
-        return status == null ? null : Status.fromId(status);
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
-    public void setStatus(Status status) {
-        this.status = status == null ? null : status.getId();
+    public Boolean getActive() {
+        return active;
     }
 
     public List<Worker> getWorkers() {

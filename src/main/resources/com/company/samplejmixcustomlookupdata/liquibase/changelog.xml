@@ -9,6 +9,9 @@
     <property name="uuid.type" dbms="!oracle" value="uuid"/>
 
     <includeAll path="/com/company/samplejmixcustomlookupdata/liquibase/changelog"/>
-    <include file="com/company/samplejmixcustomlookupdata/liquibase/changelog/data.xml"/>
+    <include file="/com/company/samplejmixcustomlookupdata/liquibase/model.xml"/>
+    <include file="/com/company/samplejmixcustomlookupdata/liquibase/data.xml"/>
+
+
 
 </databaseChangeLog>

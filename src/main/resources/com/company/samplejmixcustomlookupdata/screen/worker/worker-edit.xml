@@ -55,7 +55,7 @@
                 </actions>
                 <columns>
                     <column id="name"/>
-                    <column id="status"/>
+                    <column id="active"/>
                 </columns>
                 <buttonsPanel>
                     <button id="addTask" action="tasksTable.add"/>

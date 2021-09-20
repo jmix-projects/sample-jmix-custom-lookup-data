@@ -47,7 +47,7 @@
             </actions>
             <columns>
                 <column id="name"/>
-                <column id="status"/>
+                <column id="active"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"

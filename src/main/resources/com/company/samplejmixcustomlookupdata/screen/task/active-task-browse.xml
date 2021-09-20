@@ -9,7 +9,7 @@
             <fetchPlan extends="_base"/>
             <loader id="tasksDl">
                 <query>
-                    <![CDATA[select e from Task_ e]]>
+                    <![CDATA[select e from Task_ e where e.active=true]]>
                 </query>
             </loader>
         </collection>
@@ -45,7 +45,7 @@
             </actions>
             <columns>
                 <column id="name"/>
-                <column id="status"/>
+                <column id="active"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
