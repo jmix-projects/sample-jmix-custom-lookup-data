@@ -14,4 +14,7 @@ private void workersTableAddScreenConfigurer(Screen screen) {
 ((WorkerBrowse) screen).limitTaskCount(4);
 }
 ```
+Worker that have more than task limit count (parameter of the limitTaskCount function) will not be displayed on the WorkerBrowser screen (if this screen was opened via TaskEdit). 
+In this case: We can't add worker to the task, if the worker has more than 4 tasks.
+
 A limitTaskCount function is implemented in the worker browser, placed in the path `../screen/worker/WorkerBrowse.java`.
